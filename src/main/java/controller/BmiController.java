@@ -48,19 +48,13 @@ public class BmiController implements Initializable {
 
         BmiResult hasil = person.calculateBmi();
 
-        // Menyusun teks hasil ke dalam bentuk paragraf yang utuh dan dinamis
         String teksParagraf = String.format(
-                "Berdasarkan hasil analisis, berat badan Anda adalah %.1f kg dengan tinggi badan %.2f m. "
-                + "Skor BMI Anda tercatat sebesar %.1f, yang menunjukkan bahwa kondisi tubuh Anda masuk ke dalam kategori %s. "
-                + "Tetap jaga pola makan dan kesehatan Anda secara teratur.",
-                berat, tinggi, hasil.getScore(), hasil.getCategory()
+                "Skor BMI Anda adalah %.1f, dan masuk ke dalam kategori %s. ",
+                hasil.getScore(), hasil.getCategory()
         );
 
         // Menampilkan paragraf tersebut langsung ke hasilLabel
         hasilLabel.setText(teksParagraf);
-
-        // Memastikan teks label otomatis turun ke bawah (word wrap) jika terlalu panjang di UI JavaFX
-        hasilLabel.setWrapText(true);
     }
 
 }
